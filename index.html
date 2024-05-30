@@ -12,8 +12,6 @@
 
 <body>
   <div id="id"></div>
-  <div id="category"></div>
-  <div id="description"></div>
   <div class="container d-flex justify-content-center mt-5">
     <div class="card w-100">
       <div>
@@ -22,16 +20,31 @@
       <hr>
       <div class="card-body">
         <ul id="list" class="row list-unstyled">
-          <!-- <li class="col-md-4 col-lg-3 mb-3">
-            <div class="card text-bg-light h-100">
-              <img class="object-fit-contain h-50" src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title flex-grow-1 mt-5">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h5>
-                <button id="detail" class="btn btn-primary" data-id="1" data-bs-toggle="modal" data-bs-target="#exampleModal">Details</button>
-              </div>
-            </div>
-          </li> -->
         </ul>
+      </div>
+    </div>
+  </div>
+
+  <div id="detailBtn" class="modal fade" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="itemTitle"></h1>
+        </div>
+        <div class="modal-body">
+          <div id="card" class="card" style="width: 24rem;">
+            <img id="itemImage" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 id="item-price" class="text-danger fw-bold"></h5>
+              <h6 id="item-category" class="mb-2 text-body-secondary"></h6>
+              <p id="item-description" class="card-text">
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
       </div>
     </div>
   </div>

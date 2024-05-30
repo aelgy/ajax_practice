@@ -40,7 +40,7 @@ function render() {
               <h5 class="card-title flex-grow-1 mt-5">${item.title}</h5>
               <div class="container">
                 <div class="row">
-                  <button id="detail" class="btn btn-primary col-5" data-id="${item.id}">Details</button>
+                  <button id="detail" class="btn btn-primary col-5" data-id="${item.id}" data-title="${item.title}" data-category="${item.category}" data-description="${item.description}" data-img="${item.image}" data-price="${item.price}" data-bs-toggle="modal" data-bs-target="#detailBtn">Details</button>
                   <div class="col"></div>
                   <button id="delete" class="btn btn-danger col-5" data-id="${item.id}">Delete</button>
                 </div>
@@ -58,23 +58,29 @@ const btn = document.querySelector('#btn');
 btn.onclick = loadProduct;
 
 // show Alert function
-function showAlert(id) {
+function showModal(id) {
   fetch(url + "/" + id)
     .then(res => {
       return res.json()
     })
     .then(json => {
-      a = json;
-      alert(a.id);
-      alert(a.category);
-      alert(a.description);
+      const title = document.querySelector('#itemTitle');
+      const image = document.querySelector('#itemImage');
+      const price = document.querySelector('#item-price');
+      const category = document.querySelector('#item-category');
+      const description = document.querySelector('#item-description');
+      title.innerText = json.title;
+      image.setAttribute('src', json.image)
+      price.innerText = "USD " + json.price;
+      category.innerText = json.category;
+      description.innerText = json.description;
     })
 }
 
 // listen to data panel
 list.addEventListener('click', event => {
   if (event.target.matches('.btn-primary')) {
-    showAlert(event.target.dataset.id)
+    showModal(event.target.dataset.id)
   };
   if (event.target.matches('.btn-danger')) {
     // 刪掉整條 li

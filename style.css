@@ -1,0 +1,6 @@
+#itemImage {
+  aspect-ratio: 1 / 1;
+  width: 300px;
+  object-fit: contain;
+  object-position: center;
+}
